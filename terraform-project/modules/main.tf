@@ -30,3 +30,14 @@ module "web_sg" {
     Project     = "WebApp"
   }
 }
+
+module "my_s3_bucket" {
+  source      = "./modules/s3"
+  bucket_name = "my-terraform-bucket-123456"
+  acl         = "private"
+
+  tags = {
+    Environment = "Development"
+    Owner       = "DevOps Team"
+  }
+}
